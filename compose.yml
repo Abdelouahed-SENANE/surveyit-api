@@ -1,0 +1,35 @@
+services:
+
+  database:
+    image: postgres:17
+    container_name: surveyit_db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+    ports:
+      - "5432:5432"
+    volumes:
+      - app_data:/var/lib/postgresql/data
+    networks:
+      - net
+
+  app:
+    container_name: surveyit_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - net
+
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  app_data:
