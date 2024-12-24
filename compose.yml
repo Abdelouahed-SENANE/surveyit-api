@@ -1,8 +1,7 @@
 services:
 
-  database:
+  postgres:
     image: postgres:17
-    container_name: surveyit_db
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -14,15 +13,15 @@ services:
     networks:
       - net
 
-  app:
-    container_name: surveyit_app
+  api:
+    container_name: api
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
-      - database
+      - postgres
     networks:
       - net
 
