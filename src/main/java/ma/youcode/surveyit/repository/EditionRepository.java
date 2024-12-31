@@ -1,12 +1,8 @@
 package ma.youcode.surveyit.repository;
 
 import ma.youcode.surveyit.entity.Edition;
-import ma.youcode.surveyit.entity.Survey;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface EditionRepository extends JpaRepository<Edition, Long> {

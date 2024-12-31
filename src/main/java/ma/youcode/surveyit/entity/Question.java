@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.youcode.surveyit.enums.QuestionType;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "questions")
@@ -37,8 +37,8 @@ public class Question {
     @JoinColumn(name = "chapter_id")
     private Chapter subchapter;
 
-    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
-    private List<Answer> answers;
+    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER , cascade = CascadeType.ALL , orphanRemoval = true)
+    private List<Answer> answers = new ArrayList<>();
 
 
 }

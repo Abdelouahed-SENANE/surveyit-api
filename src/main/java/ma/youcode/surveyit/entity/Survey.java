@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,6 @@ public class Survey {
     private Owner owner;
 
     @OneToMany(mappedBy = "survey" , fetch = FetchType.EAGER)
-    private List<Edition> editions;
+    private List<Edition> editions = new ArrayList<>();
 
 }

@@ -12,7 +12,7 @@ public record ChapterResponseDTO(
         String title,
         EditionCustomDTO edition,
         @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        List<ChapterEmbeddedDTO> subchapters
+        List<ChapterResponseDTO> subchapters
 
 ) implements Serializable {
 }

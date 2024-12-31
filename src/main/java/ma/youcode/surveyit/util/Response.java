@@ -1,9 +1,8 @@
 package ma.youcode.surveyit.util;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import ma.youcode.surveyit.dto.response.transfer.ErrorResponseDTO;
 import ma.youcode.surveyit.dto.response.transfer.PageResponseDTO;
 import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.ErrorResponseDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 

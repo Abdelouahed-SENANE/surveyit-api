@@ -1,20 +1,13 @@
 package ma.youcode.surveyit.service.implementations;
 
 import lombok.AllArgsConstructor;
-import ma.youcode.surveyit.dto.request.answer.AnswerCreateDTO;
-import ma.youcode.surveyit.dto.request.answer.AnswerUpdateDTO;
 import ma.youcode.surveyit.dto.request.participate.ParticipateDTO;
-import ma.youcode.surveyit.dto.response.answer.AnswerResponseDTO;
 import ma.youcode.surveyit.entity.Answer;
 import ma.youcode.surveyit.entity.Question;
-import ma.youcode.surveyit.mapper.AnswerMapper;
-import ma.youcode.surveyit.repository.AnswerRepository;
 import ma.youcode.surveyit.service.interfaces.AnswerService;
 import ma.youcode.surveyit.service.interfaces.ParticipateService;
 import ma.youcode.surveyit.service.interfaces.QuestionService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor

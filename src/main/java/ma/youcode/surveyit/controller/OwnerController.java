@@ -2,24 +2,22 @@ package ma.youcode.surveyit.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import ma.youcode.surveyit.dto.response.transfer.PageResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
+import ma.youcode.surveyit.annotation.interfaces.Exists;
 import ma.youcode.surveyit.dto.request.owner.OwnerCreateDTO;
-import ma.youcode.surveyit.dto.response.owner.OwnerResponseDTO;
 import ma.youcode.surveyit.dto.request.owner.OwnerUpdateDTO;
+import ma.youcode.surveyit.dto.response.owner.OwnerResponseDTO;
+import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.entity.Owner;
 import ma.youcode.surveyit.service.interfaces.OwnerService;
 import ma.youcode.surveyit.util.Response;
-import ma.youcode.surveyit.annotation.interfaces.Exists;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/owners")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class OwnerController {
 
     private final OwnerService service;

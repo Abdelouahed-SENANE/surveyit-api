@@ -4,12 +4,11 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import ma.youcode.surveyit.annotation.interfaces.Exists;
 import ma.youcode.surveyit.dto.request.chapter.ChapterCreateDTO;
-import ma.youcode.surveyit.dto.response.chapter.ChapterResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.PageResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.dto.request.edition.EditionCreateDTO;
 import ma.youcode.surveyit.dto.request.edition.EditionUpdateDTO;
+import ma.youcode.surveyit.dto.response.chapter.ChapterResponseDTO;
 import ma.youcode.surveyit.dto.response.edition.EditionResponseDTO;
+import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.entity.Edition;
 import ma.youcode.surveyit.service.interfaces.ChapterService;
 import ma.youcode.surveyit.service.interfaces.EditionService;
@@ -18,18 +17,17 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/editions")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class EditionController {
 
     private final EditionService service;
     private final ChapterService chapterService;
 
     @GetMapping
-    public ResponseEntity<SuccessResponseDTO> editions(@RequestParam(defaultValue = "0") int page , @RequestParam(value = "5") int size) {
+    public ResponseEntity<SuccessResponseDTO> editions(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "10") int size) {
 
         int index  = page > 0 ? page - 1 : 0;
 

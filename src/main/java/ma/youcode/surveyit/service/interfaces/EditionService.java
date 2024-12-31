@@ -6,8 +6,6 @@ import ma.youcode.surveyit.dto.response.edition.EditionResponseDTO;
 import ma.youcode.surveyit.entity.Edition;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
-
 public interface EditionService {
     Page<EditionResponseDTO> getAllEditions(int page , int size);
     EditionResponseDTO getEdition(Long id);

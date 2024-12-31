@@ -15,8 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -56,9 +55,7 @@ public class AnswerServiceImp implements AnswerService {
     public Page<AnswerResponseDTO> getAllAnswers(int page , int size) {
 
         Pageable pageable = PageRequest.of(page, size);
-
         Page<Answer> answersPage = repository.findAll(pageable);
-
             return answersPage.map(mapper::toResponseDTO);
     }
 

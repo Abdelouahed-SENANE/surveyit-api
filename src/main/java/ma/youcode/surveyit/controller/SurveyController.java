@@ -2,18 +2,17 @@ package ma.youcode.surveyit.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import ma.youcode.surveyit.dto.response.survey.SurveyResultDTO;
-import ma.youcode.surveyit.dto.response.transfer.PageResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
+import ma.youcode.surveyit.annotation.interfaces.Exists;
 import ma.youcode.surveyit.dto.request.survey.SurveyCreateDTO;
 import ma.youcode.surveyit.dto.request.survey.SurveyUpdateDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyResponseDTO;
+import ma.youcode.surveyit.dto.response.survey.SurveyResultDTO;
+import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.entity.Survey;
 import ma.youcode.surveyit.service.interfaces.ParticipateService;
 import ma.youcode.surveyit.service.interfaces.SurveyService;
 import ma.youcode.surveyit.util.Converter;
 import ma.youcode.surveyit.util.Response;
-import ma.youcode.surveyit.annotation.interfaces.Exists;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.data.domain.Page;
@@ -24,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/surveys")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class SurveyController {
 
     private static final Log log = LogFactory.getLog(SurveyController.class);
@@ -31,7 +31,7 @@ public class SurveyController {
     private final ParticipateService participateService;
 
     @GetMapping
-    public ResponseEntity<SuccessResponseDTO> surveys(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "1") int size) {
+    public ResponseEntity<SuccessResponseDTO> surveys(@RequestParam(defaultValue = "0") int page , @RequestParam(defaultValue = "100") int size) {
 
         int index  = page > 0 ? page - 1 : 0;
         Page<SurveyResponseDTO> pageSurvey = service.getAllSurveys(index , size);

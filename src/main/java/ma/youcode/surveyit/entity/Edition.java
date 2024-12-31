@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "editions")
@@ -33,7 +33,7 @@ public class Edition {
     private int year;
 
     @OneToMany(mappedBy = "edition" , fetch = FetchType.EAGER)
-    private List<Chapter> chapters;
+    private List<Chapter> chapters = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "survey_id")

@@ -64,7 +64,7 @@ class ChapterServiceImpTest {
         chapter.setId(chapterId);
         chapter.setTitle("Sample Chapter");
         EditionCustomDTO editionCustomDTO = new EditionCustomDTO(1L , LocalDateTime.now() , LocalDateTime.now());
-        List<ChapterEmbeddedDTO> subchapters = new ArrayList<>();
+        List<ChapterResponseDTO> subchapters = new ArrayList<>();
         chapterResponseDTO = new ChapterResponseDTO(chapterId, "Sample Chapter", editionCustomDTO , subchapters);
     }
 

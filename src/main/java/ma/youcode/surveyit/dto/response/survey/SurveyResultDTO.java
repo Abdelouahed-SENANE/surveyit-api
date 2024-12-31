@@ -2,7 +2,6 @@ package ma.youcode.surveyit.dto.response.survey;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;

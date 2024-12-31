@@ -6,7 +6,6 @@ import ma.youcode.surveyit.annotation.interfaces.Exists;
 import ma.youcode.surveyit.dto.request.answer.AnswerCreateDTO;
 import ma.youcode.surveyit.dto.request.answer.AnswerUpdateDTO;
 import ma.youcode.surveyit.dto.response.answer.AnswerResponseDTO;
-import ma.youcode.surveyit.dto.response.transfer.PageResponseDTO;
 import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.entity.Answer;
 import ma.youcode.surveyit.service.interfaces.AnswerService;
@@ -17,11 +16,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/answers")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class AnswerController {
 
     private static final Log log = LogFactory.getLog(AnswerController.class);
@@ -70,7 +68,7 @@ public class AnswerController {
 
         AnswerResponseDTO response = service.createAnswer(dto);
         return Response.success(201,
-                "Answer created successfully",
+                "Answer created successfully.",
                 "answer",
                 response
         );

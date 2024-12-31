@@ -6,8 +6,6 @@ import ma.youcode.surveyit.dto.response.question.QuestionResponseDTO;
 import ma.youcode.surveyit.entity.Question;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
-
 public interface QuestionService {
     Page<QuestionResponseDTO> getAllQuestions(int page , int size);
     QuestionResponseDTO getQuestion(Long id);

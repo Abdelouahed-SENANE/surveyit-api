@@ -3,6 +3,7 @@ package ma.youcode.surveyit.service.implementations;
 import ma.youcode.surveyit.dto.request.edition.EditionCreateDTO;
 import ma.youcode.surveyit.dto.request.edition.EditionUpdateDTO;
 import ma.youcode.surveyit.dto.response.chapter.ChapterEmbeddedDTO;
+import ma.youcode.surveyit.dto.response.chapter.ChapterResponseDTO;
 import ma.youcode.surveyit.dto.response.edition.EditionEmbeddedDTO;
 import ma.youcode.surveyit.dto.response.edition.EditionResponseDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyCustomDTO;
@@ -70,7 +71,7 @@ class EditionServiceImpTest {
         edition.setSurvey(survey);
         List<ChapterEmbeddedDTO> chapters = new ArrayList<>();
         SurveyCustomDTO surveyCustomDTO = new SurveyCustomDTO(surveyId, "simple survey", "description");
-        editionResponseDTO = new EditionResponseDTO(editionId, LocalDateTime.now(), LocalDateTime.now(), surveyCustomDTO, chapters);
+        editionResponseDTO = new EditionResponseDTO(editionId, LocalDateTime.now(), LocalDateTime.now(), 2024,surveyCustomDTO, chapters);
     }
 
     @Test

@@ -1,7 +1,6 @@
 package ma.youcode.surveyit.dto.response.chapter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma.youcode.surveyit.dto.response.question.QuestionEmbeddedDTO;
 
 import java.io.Serializable;
 import java.util.List;
