@@ -1,6 +1,6 @@
 package ma.youcode.surveyit.dto.response.question;
 
-import ma.youcode.surveyit.enums.QuestionType;
+import ma.youcode.surveyit.constant.QuestionType;
 
 import java.io.Serializable;
 

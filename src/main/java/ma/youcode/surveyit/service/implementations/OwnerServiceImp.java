@@ -1,36 +1,34 @@
 package ma.youcode.surveyit.service.implementations;
 
 import jakarta.persistence.EntityNotFoundException;
-import ma.youcode.surveyit.dto.request.owner.OwnerCreateDTO;
-import ma.youcode.surveyit.dto.request.owner.OwnerUpdateDTO;
+import lombok.RequiredArgsConstructor;
+import ma.youcode.surveyit.dto.request.owner.OwnerRequestDTO;
 import ma.youcode.surveyit.dto.response.owner.OwnerResponseDTO;
 import ma.youcode.surveyit.entity.Owner;
 import ma.youcode.surveyit.mapper.OwnerMapper;
 import ma.youcode.surveyit.repository.OwnerRepository;
 import ma.youcode.surveyit.service.interfaces.OwnerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class OwnerServiceImp implements OwnerService {
 
-    @Autowired
-    private OwnerRepository repository;
-    @Autowired
-    private OwnerMapper mapper;
+    private final OwnerRepository repository;
+    private final OwnerMapper mapper;
 
     @Override
-    public OwnerResponseDTO createOwner(OwnerCreateDTO dto) {
+    public void create(OwnerRequestDTO dto) {
         Owner owner = mapper.toOwner(dto);
         repository.save(owner);
-        return mapper.toResponseDTO(owner);
+         mapper.toResponseDTO(owner);
     }
 
     @Override
-    public OwnerResponseDTO editOwner(OwnerUpdateDTO dto , Long id) {
+    public OwnerResponseDTO editOwner(OwnerRequestDTO dto , Long id) {
         Owner owner = mapper.toOwner(dto);
         owner.setId(id);
         repository.save(owner);

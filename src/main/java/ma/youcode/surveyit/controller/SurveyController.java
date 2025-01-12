@@ -108,13 +108,11 @@ public class SurveyController {
 
         Object dto =  Converter.process(request);
         participateService.participateProcess(dto);
-
         return Response.success(201 , "Participated recorded successfully");
     }
 
     @GetMapping("{surveyId}/results")
     public ResponseEntity<SuccessResponseDTO> results( @PathVariable @Exists(entity = Survey.class, message = "Survey not found") Long surveyId){
-
         SurveyResultDTO results = service.getSurveyResults(surveyId);
         return Response.success(200 , "Results for survey successfully" , "results",results);
     }

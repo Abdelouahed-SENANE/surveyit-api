@@ -6,22 +6,16 @@ import ma.youcode.surveyit.dto.request.survey.SurveyUpdateDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyResponseDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyResultDTO;
 import ma.youcode.surveyit.entity.*;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.SurveyMapper;
 import ma.youcode.surveyit.repository.SurveyRepository;
-import ma.youcode.surveyit.service.implementations.SurveyServiceImp;
 import ma.youcode.surveyit.service.interfaces.OwnerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class SurveyServiceImpTest {

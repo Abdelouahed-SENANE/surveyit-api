@@ -2,6 +2,7 @@ package ma.youcode.surveyit.dto.response.chapter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import ma.youcode.surveyit.dto.response.edition.EditionCustomDTO;
+import ma.youcode.surveyit.dto.response.question.QuestionEmbeddedDTO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +12,8 @@ public record ChapterResponseDTO(
         Long id,
         String title,
         EditionCustomDTO edition,
-        @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        List<ChapterResponseDTO> subchapters
+        List<ChapterResponseDTO> subchapters,
+        List<QuestionEmbeddedDTO> questions
 
 ) implements Serializable {
 }

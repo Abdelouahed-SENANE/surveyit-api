@@ -3,8 +3,8 @@ package ma.youcode.surveyit.dto.request.question;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import ma.youcode.surveyit.annotation.interfaces.Exists;
+import ma.youcode.surveyit.constant.QuestionType;
 import ma.youcode.surveyit.entity.Chapter;
-import ma.youcode.surveyit.enums.QuestionType;
 
 import java.io.Serializable;
 

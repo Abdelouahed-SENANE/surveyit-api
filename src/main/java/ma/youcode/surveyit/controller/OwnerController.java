@@ -3,8 +3,7 @@ package ma.youcode.surveyit.controller;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import ma.youcode.surveyit.annotation.interfaces.Exists;
-import ma.youcode.surveyit.dto.request.owner.OwnerCreateDTO;
-import ma.youcode.surveyit.dto.request.owner.OwnerUpdateDTO;
+import ma.youcode.surveyit.dto.request.owner.OwnerRequestDTO;
 import ma.youcode.surveyit.dto.response.owner.OwnerResponseDTO;
 import ma.youcode.surveyit.dto.response.transfer.SuccessResponseDTO;
 import ma.youcode.surveyit.entity.Owner;
@@ -56,7 +55,7 @@ public class OwnerController {
     public ResponseEntity<SuccessResponseDTO> edit(
             @PathVariable
             @Valid @Exists(entity = Owner.class, message = "Owner Not Found") Long id,
-            @RequestBody @Valid OwnerUpdateDTO dto
+            @RequestBody @Valid OwnerRequestDTO dto
     ) {
 
         OwnerResponseDTO response = service.editOwner(dto, id);
@@ -67,18 +66,18 @@ public class OwnerController {
         );
     }
 
-    @PostMapping
-    public ResponseEntity<SuccessResponseDTO> create(
-            @Valid @RequestBody OwnerCreateDTO dto
-    ) {
-
-        OwnerResponseDTO response = service.createOwner(dto);
-        return Response.success(201,
-                "Owner Created successfully",
-                "owner",
-                response
-        );
-    }
+//    @PostMapping
+//    public ResponseEntity<SuccessResponseDTO> create(
+//            @Valid @RequestBody OwnerRequestDTO dto
+//    ) {
+//
+//        OwnerResponseDTO response = service.createOwner(dto);
+//        return Response.success(201,
+//                "Owner Created successfully",
+//                "owner",
+//                response
+//        );
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<SuccessResponseDTO> delete(

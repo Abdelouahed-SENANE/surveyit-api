@@ -6,8 +6,8 @@ import ma.youcode.surveyit.dto.response.answer.AnswerResponseDTO;
 import ma.youcode.surveyit.dto.response.question.QuestionEmbeddedDTO;
 import ma.youcode.surveyit.entity.Answer;
 import ma.youcode.surveyit.entity.Question;
-import ma.youcode.surveyit.enums.QuestionType;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.constant.QuestionType;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.AnswerMapper;
 import ma.youcode.surveyit.repository.AnswerRepository;
 import ma.youcode.surveyit.service.interfaces.QuestionService;
@@ -17,7 +17,6 @@ import org.mockito.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
 import java.util.Arrays;
 import java.util.Optional;

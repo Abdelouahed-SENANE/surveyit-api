@@ -8,9 +8,11 @@ import ma.youcode.surveyit.service.interfaces.AnswerService;
 import ma.youcode.surveyit.service.interfaces.ParticipateService;
 import ma.youcode.surveyit.service.interfaces.QuestionService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class ParticipateServiceImp implements ParticipateService {
 
     private final AnswerService answerService;
@@ -23,12 +25,10 @@ public class ParticipateServiceImp implements ParticipateService {
             for (ParticipateDTO.Response response : responses.responses()) {
                 handleResponse(response);
             }
-
         }else  {
             ParticipateDTO.Response response = (ParticipateDTO.Response) dto;
             handleResponse(response);
         }
-
     }
 
     private void handleResponse(ParticipateDTO.Response response) {
@@ -59,10 +59,12 @@ public class ParticipateServiceImp implements ParticipateService {
     private void handleMultiChoice(ParticipateDTO.Response response , Question question) {
 
         if (response.answers() != null) {
+            System.out.println("Line 60 ===>" + response.answers());
             for (ParticipateDTO.Answer answer : response.answers() ) {
-                Answer multiAnswer = answerService.findAnswerById(answer.answerId());
-                multiAnswer.setSelectionCount(multiAnswer.getSelectionCount() + 1);
-                answerService.editSelectionCount(multiAnswer);
+                System.out.println("Line 62 ===>" + response.answers());
+                Answer currentAnswer = answerService.findAnswerById(answer.answerId());
+                currentAnswer.setSelectionCount(currentAnswer.getSelectionCount() + 1);
+                answerService.editSelectionCount(currentAnswer);
             }
             question.setAnswerCount(question.getAnswerCount() + response.answers().size());
             questionService.editAnswerCount(question);

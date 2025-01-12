@@ -6,7 +6,7 @@ import ma.youcode.surveyit.dto.request.edition.EditionUpdateDTO;
 import ma.youcode.surveyit.dto.response.edition.EditionResponseDTO;
 import ma.youcode.surveyit.entity.Edition;
 import ma.youcode.surveyit.entity.Survey;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.EditionMapper;
 import ma.youcode.surveyit.repository.EditionRepository;
 import ma.youcode.surveyit.service.interfaces.EditionService;

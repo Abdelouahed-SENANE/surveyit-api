@@ -2,12 +2,12 @@ package ma.youcode.surveyit.service.implementations;
 
 import ma.youcode.surveyit.dto.request.chapter.ChapterCreateDTO;
 import ma.youcode.surveyit.dto.request.chapter.ChapterUpdateDTO;
-import ma.youcode.surveyit.dto.response.chapter.ChapterEmbeddedDTO;
 import ma.youcode.surveyit.dto.response.chapter.ChapterResponseDTO;
 import ma.youcode.surveyit.dto.response.edition.EditionCustomDTO;
+import ma.youcode.surveyit.dto.response.question.QuestionEmbeddedDTO;
 import ma.youcode.surveyit.entity.Edition;
 import ma.youcode.surveyit.entity.Chapter;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.ChapterMapper;
 import ma.youcode.surveyit.repository.ChapterRepository;
 import ma.youcode.surveyit.service.interfaces.EditionService;
@@ -65,7 +65,8 @@ class ChapterServiceImpTest {
         chapter.setTitle("Sample Chapter");
         EditionCustomDTO editionCustomDTO = new EditionCustomDTO(1L , LocalDateTime.now() , LocalDateTime.now());
         List<ChapterResponseDTO> subchapters = new ArrayList<>();
-        chapterResponseDTO = new ChapterResponseDTO(chapterId, "Sample Chapter", editionCustomDTO , subchapters);
+        List<QuestionEmbeddedDTO> questions = new ArrayList<>();
+        chapterResponseDTO = new ChapterResponseDTO(chapterId, "Sample Chapter", editionCustomDTO , subchapters , questions);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package ma.youcode.surveyit.exception;
+package ma.youcode.surveyit.exception.custom;
 
 public class EntityNotFoundException extends RuntimeException{
     public EntityNotFoundException(String message){

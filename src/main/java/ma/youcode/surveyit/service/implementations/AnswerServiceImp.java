@@ -6,7 +6,7 @@ import ma.youcode.surveyit.dto.request.answer.AnswerUpdateDTO;
 import ma.youcode.surveyit.dto.response.answer.AnswerResponseDTO;
 import ma.youcode.surveyit.entity.Answer;
 import ma.youcode.surveyit.entity.Question;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.AnswerMapper;
 import ma.youcode.surveyit.repository.AnswerRepository;
 import ma.youcode.surveyit.service.interfaces.AnswerService;
@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class AnswerServiceImp implements AnswerService {
 
     private final AnswerRepository repository;
@@ -71,6 +72,6 @@ public class AnswerServiceImp implements AnswerService {
 
     @Override
     public void editSelectionCount(Answer answer) {
-        repository.save(answer);
+        repository.saveAndFlush(answer);
     }
 }

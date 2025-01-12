@@ -31,14 +31,14 @@ public class Chapter {
     @JoinColumn(name = "parent_id", insertable = false, updatable = false)
     private Chapter parent;
 
-    @OneToMany(mappedBy = "parent" ,cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "parent" ,cascade = CascadeType.ALL , fetch = FetchType.EAGER , orphanRemoval = true)
     private List<Chapter> subchapters = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "edition_id")
     private Edition edition;
 
-    @OneToMany(mappedBy = "subchapter" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "subchapter" , cascade = CascadeType.ALL , fetch = FetchType.EAGER ,orphanRemoval = true)
     private List<Question> questions = new ArrayList<>();
 
 

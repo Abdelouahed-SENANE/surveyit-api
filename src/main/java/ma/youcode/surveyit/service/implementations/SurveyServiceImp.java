@@ -7,7 +7,7 @@ import ma.youcode.surveyit.dto.request.survey.SurveyUpdateDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyResponseDTO;
 import ma.youcode.surveyit.dto.response.survey.SurveyResultDTO;
 import ma.youcode.surveyit.entity.*;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.SurveyMapper;
 import ma.youcode.surveyit.repository.SurveyRepository;
 import ma.youcode.surveyit.service.interfaces.OwnerService;
@@ -15,6 +15,8 @@ import ma.youcode.surveyit.service.interfaces.SurveyService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,7 @@ public class SurveyServiceImp implements SurveyService {
     @Override
     @Transactional
     public SurveyResponseDTO createSurvey(SurveyCreateDTO dto) {
+        UserDetails authenticatedUser = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Owner owner = ownerService.getOwnerEntity(dto.ownerId());
 

@@ -138,7 +138,7 @@ public class ChapterController {
     ) {
         service.deleteChapter(id);
         return Response.success(200,
-                "Chapter deleted successfully",
+                "Subchapter deleted successfully",
                 "subchapterId",
                 id
         );

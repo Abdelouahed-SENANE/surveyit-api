@@ -1,6 +1,7 @@
 package ma.youcode.surveyit.exception;
 
 import ma.youcode.surveyit.dto.response.transfer.ErrorResponseDTO;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.repository.SurveyRepository;
 import ma.youcode.surveyit.util.Response;
 import org.slf4j.Logger;
@@ -20,10 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class RestExceptionHandler {
-    private  final Logger logger = LoggerFactory.getLogger(RestExceptionHandler.class);
+public class GlobalHandlerException {
+    private  final Logger logger = LoggerFactory.getLogger(GlobalHandlerException.class);
 
-    public RestExceptionHandler(SurveyRepository surveyRepository) {
+    public GlobalHandlerException(SurveyRepository surveyRepository) {
     }
 
     @ExceptionHandler(Exception.class)

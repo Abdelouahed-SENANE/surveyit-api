@@ -3,16 +3,13 @@ package ma.youcode.surveyit.service.implementations;
 import ma.youcode.surveyit.dto.request.participate.ParticipateDTO;
 import ma.youcode.surveyit.entity.Answer;
 import ma.youcode.surveyit.entity.Question;
-import ma.youcode.surveyit.enums.QuestionType;
+import ma.youcode.surveyit.constant.QuestionType;
 import ma.youcode.surveyit.service.interfaces.AnswerService;
 import ma.youcode.surveyit.service.interfaces.QuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

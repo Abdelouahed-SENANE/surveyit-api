@@ -6,7 +6,7 @@ import ma.youcode.surveyit.dto.request.chapter.ChapterUpdateDTO;
 import ma.youcode.surveyit.dto.response.chapter.ChapterResponseDTO;
 import ma.youcode.surveyit.entity.Chapter;
 import ma.youcode.surveyit.entity.Edition;
-import ma.youcode.surveyit.exception.EntityNotFoundException;
+import ma.youcode.surveyit.exception.custom.EntityNotFoundException;
 import ma.youcode.surveyit.mapper.ChapterMapper;
 import ma.youcode.surveyit.repository.ChapterRepository;
 import ma.youcode.surveyit.service.interfaces.ChapterService;
@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -69,6 +70,7 @@ public class ChapterServiceImp implements ChapterService {
     }
 
     @Override
+    @Transactional
     public void deleteChapter(Long id) {
         repository.deleteById(id);
     }
