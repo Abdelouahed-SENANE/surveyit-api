@@ -1,18 +1,22 @@
 package ma.youcode.surveyit.service.implementations;
 
 import lombok.RequiredArgsConstructor;
+import ma.youcode.surveyit.constant.RoleName;
 import ma.youcode.surveyit.dto.request.login.LoginRequestDTO;
 import ma.youcode.surveyit.dto.request.user.UserRequestDTO;
 import ma.youcode.surveyit.dto.response.login.LoginResponseDTO;
-import ma.youcode.surveyit.entity.User;
 import ma.youcode.surveyit.security.jwt.JWTGenerator;
 import ma.youcode.surveyit.service.interfaces.AuthService;
 import ma.youcode.surveyit.service.interfaces.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,7 +32,13 @@ public class AuthServiceImp implements AuthService {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.email(), loginDTO.password()));
         String token = jwtGenerator.generateToken(authentication);
         long tokenExp = jwtGenerator.getExpirationTime();
-        return new LoginResponseDTO(token, tokenExp ,authentication.getAuthorities());
+        return new LoginResponseDTO(token, tokenExp ,getRoles(authentication.getAuthorities()));
+    }
+
+    private List<RoleName> getRoles(Collection<? extends GrantedAuthority> authorities) {
+        return authorities.stream()
+                .map(authority -> RoleName.valueOf(authority.getAuthority()))
+                .toList();
     }
 
     @Override

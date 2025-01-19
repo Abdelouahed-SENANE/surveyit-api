@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.starter.utilities.dtos.SimpleSuccessDTO;
-import org.starter.utilities.validation.groups.OnCreate;
+import org.starter.utilities.markers.validation.OnCreate;
 
 import static org.starter.utilities.response.Response.simpleSuccess;
 

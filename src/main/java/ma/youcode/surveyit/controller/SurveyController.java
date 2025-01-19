@@ -23,10 +23,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/surveys")
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 public class SurveyController {
 
-    private static final Log log = LogFactory.getLog(SurveyController.class);
     private final SurveyService service;
     private final ParticipateService participateService;
 
